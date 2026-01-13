@@ -1,6 +1,6 @@
 # ByteDesk Qt Client
 
-> 基于 C++ + Qt + MQTT 实现的跨平台即时通讯客户端
+> A cross-platform instant messaging client based on C++ + Qt + MQTT
 
 [![Qt](https://img.shields.io/badge/Qt-6.10%2B-41CD52?logo=qt)](https://www.qt.io)
 [![C++](https://img.shields.io/badge/C++-17-00599C?logo=c%2B%2B)](https://en.cppreference.com/w/C++17)
@@ -8,107 +8,107 @@
 
 ---
 
-## ✨ 特性
+## ✨ Features
 
-- ✅ **用户认证** - 登录/登出，Token自动刷新
-- ✅ **实时通信** - MQTT长连接，消息即时送达
-- ✅ **会话管理** - 加载、切换、刷新会话列表
-- ✅ **消息收发** - 文本消息实时收发
-- ✅ **跨平台** - 支持 Windows、macOS、Linux
-- ✅ **轻量级** - 纯Qt实现，无第三方MQTT库依赖
+- ✅ **User Authentication** - Login/logout, automatic token refresh
+- ✅ **Real-time Communication** - MQTT persistent connection, instant message delivery
+- ✅ **Thread Management** - Load, switch, and refresh thread lists
+- ✅ **Messaging** - Real-time text message sending and receiving
+- ✅ **Cross-platform** - Supports Windows, macOS, and Linux
+- ✅ **Lightweight** - Pure Qt implementation, no third-party MQTT library dependencies
 
 ---
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 编译运行
+### Build and Run
 
 ```bash
-# 方法1: Qt Creator（推荐）
-1. 打开 bytedesk.pro
-2. 点击运行按钮 (或按 Ctrl+R)
+# Method 1: Qt Creator (Recommended)
+1. Open bytedesk.pro
+2. Click the Run button (or press Ctrl+R)
 
-# 方法2: 命令行
+# Method 2: Command Line
 qmake bytedesk.pro && make
 ./qt
 
-# 方法3: 编译脚本
+# Method 3: Build Script
 ./build.sh
 ```
 
-### 系统要求
+### System Requirements
 
 - **Qt 6.10+**
-- **C++17** 编译器
+- **C++17** compiler
 - **macOS**: 10.15+ (Catalina)
 - **Windows**: 10+
-- **Linux**: GCC 7+ 或 Clang 6+
+- **Linux**: GCC 7+ or Clang 6+
 
 ---
 
-## 📱 使用指南
+## 📱 User Guide
 
-### 1. 启动应用
+### 1. Launch Application
 
-运行程序后，您将看到主窗口：
+When you run the program, you will see the main window:
 
 ```
 ┌──────────────────────────────────────────┐
-│ 微语 - ByteDesk Qt Client               │
+│ Weiyu - ByteDesk Qt Client              │
 ├──────────────────────────────────────────┤
-│ 菜单: [登录] [登出] [刷新会话] [退出]    │
+│ Menu: [Login] [Logout] [Refresh] [Exit] │
 ├──────────────┬───────────────────────────┤
-│ 会话列表      │ 聊天窗口                  │
+│ Thread List  │ Chat Window               │
 │              │                            │
-│ □ 会话1     │ [10:30] 张三: 你好！      │
-│ □ 会话2     │ [10:31] 我: 你好啊        │
-│ □ 会话3     │                            │
-│              │ [输入消息.......] [发送]  │
+│ ☐ Thread 1  │ [10:30] Zhang San: Hi!    │
+│ ☐ Thread 2  │ [10:31] Me: Hello!        │
+│ ☐ Thread 3  │                            │
+│              │ [Type message.....] [Send]│
 ├──────────────┴───────────────────────────┤
-│ 状态: 欢迎使用微语Qt客户端 - 请登录      │
+│ Status: Welcome to ByteDesk Qt - Please login│
 └──────────────────────────────────────────┘
 ```
 
-### 2. 登录
+### 2. Login
 
-1. 点击菜单 **"菜单" → "登录"**
-2. 输入用户名和密码
-3. 点击确定
+1. Click menu **"Menu" → "Login"**
+2. Enter username and password
+3. Click OK
 
-### 3. 发送消息
+### 3. Send Message
 
-1. 点击左侧会话列表选择会话
-2. 在输入框输入文字
-3. 点击"发送"或按回车键
+1. Click on a thread in the left thread list to select it
+2. Type your message in the input box
+3. Click "Send" or press Enter
 
-### 4. 接收消息
+### 4. Receive Messages
 
-- 新消息会实时显示在聊天窗口
-- 自己的消息显示为蓝色
-- 他人的消息显示为绿色
+- New messages will appear in real-time in the chat window
+- Your messages are displayed in blue
+- Others' messages are displayed in green
 
 ---
 
-## 🏗️ 项目结构
+## 🏗️ Project Structure
 
 ```
 qt/
-├── bytedesk.pro              # qmake项目文件
-├── build.sh                  # 编译脚本
-├── verify.sh                 # 验证脚本
+├── bytedesk.pro              # qmake project file
+├── build.sh                  # Build script
+├── verify.sh                 # Verification script
 └── src/
-    ├── main.cpp              # 程序入口
+    ├── main.cpp              # Program entry point
     │
-    ├── models/               # 数据模型 (8个文件)
-    │   ├── message.cpp/h     # 消息模型
-    │   ├── thread.cpp/h      # 会话模型
-    │   ├── user.cpp/h        # 用户模型
-    │   └── config.cpp/h      # 配置模型
+    ├── models/               # Data models (8 files)
+    │   ├── message.cpp/h     # Message model
+    │   ├── thread.cpp/h      # Thread model
+    │   ├── user.cpp/h        # User model
+    │   └── config.cpp/h      # Configuration model
     │
-    ├── core/                 # 核心功能 (14个文件)
-    │   ├── auth/            # 认证管理
+    ├── core/                 # Core functionality (14 files)
+    │   ├── auth/            # Authentication management
     │   │   └── authmanager.cpp/h
-    │   ├── mqtt/            # MQTT通信（TCP实现）
+    │   ├── mqtt/            # MQTT communication (TCP implementation)
     │   │   ├── mqttclient.cpp/h
     │   │   └── mqttmessagehandler.cpp/h
     │   └── network/         # HTTP API
@@ -118,16 +118,16 @@ qt/
     │       ├── messageapi.cpp/h
     │       └── threadapi.cpp/h
     │
-    └── ui/                   # 用户界面 (3个文件)
-        ├── mainwindow.cpp/h  # 主窗口
-        └── mainwindow.ui     # UI设计
+    └── ui/                   # User interface (3 files)
+        ├── mainwindow.cpp/h  # Main window
+        └── mainwindow.ui     # UI design
 ```
 
 ---
 
-## 💡 代码示例
+## 💡 Code Examples
 
-### 初始化组件
+### Initialize Components
 
 ```cpp
 #include "models/config.h"
@@ -136,32 +136,32 @@ qt/
 #include "core/mqtt/mqttclient.h"
 #include "core/auth/authmanager.h"
 
-// 配置服务器
+// Configure server
 BYTDESK_CONFIG->setApiUrl("https://api.bytedesk.com");
 
-// 创建HTTP客户端
+// Create HTTP client
 HttpClient* httpClient = new HttpClient(this);
 httpClient->setBaseUrl(BYTDESK_CONFIG->getApiUrl());
 
-// 创建认证管理器
+// Create authentication manager
 AuthApi* authApi = new AuthApi(httpClient, this);
 MqttClient* mqttClient = new MqttClient(this);
 AuthManager* authManager = new AuthManager(authApi, mqttClient, this);
 ```
 
-### 登录
+### Login
 
 ```cpp
-// 连接信号
+// Connect signals
 connect(authManager, &AuthManager::loginSuccess, [](const UserPtr& user) {
-    qDebug() << "登录成功:" << user->getUsername();
+    qDebug() << "Login successful:" << user->getUsername();
 });
 
-// 执行登录
+// Execute login
 authManager->login("username", "password");
 ```
 
-### 发送消息
+### Send Message
 
 ```cpp
 #include "core/mqtt/mqttmessagehandler.h"
@@ -169,42 +169,42 @@ authManager->login("username", "password");
 MqttMessageHandler* mqttHandler = new MqttMessageHandler(mqttClient, this);
 mqttHandler->init();
 
-// 发送文本消息
+// Send text message
 mqttHandler->sendTextMessage(thread, "Hello, World!", currentUser);
 
-// 接收消息
+// Receive messages
 connect(mqttHandler, &MqttMessageHandler::messageReceived,
         [](const MessagePtr& msg) {
-    qDebug() << "收到消息:" << msg->getContentString();
+    qDebug() << "Message received:" << msg->getContentString();
 });
 ```
 
 ---
 
-## 🛠️ 技术栈
+## 🛠️ Tech Stack
 
-### 核心技术
+### Core Technologies
 
-- **Qt 6.10+** - 跨平台UI框架
-- **C++17** - 现代C++标准
-- **MQTT 3.1.1** - 实时消息协议（TCP实现）
-- **HTTP/HTTPS** - REST API调用
+- **Qt 6.10+** - Cross-platform UI framework
+- **C++17** - Modern C++ standard
+- **MQTT 3.1.1** - Real-time messaging protocol (TCP implementation)
+- **HTTP/HTTPS** - REST API calls
 
-### Qt模块
+### Qt Modules
 
-- `QtCore` - 核心功能
-- `QtGui` - GUI基础
-- `QtWidgets` - UI组件
-- `QtNetwork` - 网络通信
-- `QtSql` - 数据库（待集成）
+- `QtCore` - Core functionality
+- `QtGui` - GUI foundation
+- `QtWidgets` - UI components
+- `QtNetwork` - Network communication
+- `QtSql` - Database (to be integrated)
 
 ---
 
-## 🔧 配置说明
+## 🔧 Configuration
 
-### 修改服务器地址
+### Change Server Address
 
-编辑 `src/models/config.cpp`：
+Edit `src/models/config.cpp`:
 
 ```cpp
 const QString Config::DEFAULT_API_URL = "https://your-server.com";
@@ -212,9 +212,9 @@ const QString Config::DEFAULT_MQTT_HOST = "mqtt.your-server.com";
 const int Config::DEFAULT_MQTT_PORT = 1883;
 ```
 
-### 配置文件位置
+### Configuration File Location
 
-应用配置会保存到：
+Application configuration is saved to:
 
 - **macOS**: `~/Library/Preferences/com.bytedesk.qt.plist`
 - **Linux**: `~/.config/Bytedesk/bytedesk-qt.conf`
@@ -222,102 +222,102 @@ const int Config::DEFAULT_MQTT_PORT = 1883;
 
 ---
 
-## 🎯 功能状态
+## 🎯 Feature Status
 
-### 已实现 ✅
+### Implemented ✅
 
-- [x] 用户登录/登出
-- [x] Token自动刷新
-- [x] 会话列表管理
-- [x] 文本消息收发
-- [x] MQTT实时通信
-- [x] HTTP API封装
-- [x] 配置持久化
-- [x] 完整UI界面
+- [x] User login/logout
+- [x] Automatic token refresh
+- [x] Thread list management
+- [x] Text message sending/receiving
+- [x] MQTT real-time communication
+- [x] HTTP API wrapper
+- [x] Persistent configuration
+- [x] Complete UI interface
 
-### 待开发 ⚠️
+### Under Development ⚠️
 
-- [ ] 文件上传/下载
-- [ ] 图片消息预览
-- [ ] 历史消息加载
-- [ ] 消息撤回
-- [ ] 未读消息计数
-- [ ] SQLite数据库
-- [ ] 表情支持
-- [ ] 搜索功能
+- [ ] File upload/download
+- [ ] Image message preview
+- [ ] Historical message loading
+- [ ] Message recall
+- [x] Unread message count
+- [ ] SQLite database
+- [ ] Emoji support
+- [ ] Search functionality
 
 ---
 
-## 🐛 常见问题
+## 🐛 FAQ
 
-### 1. 编译错误：找不到Qt模块
+### 1. Compilation Error: Qt Module Not Found
 
-**解决方案**：
-- Qt Creator: 检查Kit配置
-- 命令行: 设置正确的Qt路径
+**Solution**:
+- Qt Creator: Check Kit configuration
+- Command line: Set correct Qt path
 ```bash
 export PATH=$PATH:~/Qt/6.10.1/macos/bin
 ```
 
-### 2. MQTT连接失败
+### 2. MQTT Connection Failed
 
-**解决方案**：
-- 检查服务器地址和端口
-- 确认网络连接
-- 验证Token是否有效
-- 查看控制台日志
+**Solution**:
+- Check server address and port
+- Confirm network connection
+- Verify token is valid
+- Check console logs
 
-### 3. 登录失败
+### 3. Login Failed
 
-**解决方案**：
-- 确认服务器地址正确
-- 检查用户名密码
-- 查看状态栏错误提示
+**Solution**:
+- Confirm server address is correct
+- Check username and password
+- Check status bar error message
 
-### 4. 消息发送失败
+### 4. Message Send Failed
 
-**解决方案**：
-- 确保已登录
-- 确保已选择会话
-- 检查MQTT连接状态
-
----
-
-## 📊 项目完成度
-
-| 模块 | 完成度 | 文件数 |
-|------|--------|--------|
-| 数据模型 | ✅ 100% | 8 |
-| 核心功能 | ✅ 100% | 14 |
-| UI界面 | ✅ 80% | 3 |
-| 文档 | ✅ 100% | - |
-| **总计** | **✅ 95%** | **25** |
+**Solution**:
+- Ensure you are logged in
+- Ensure a thread is selected
+- Check MQTT connection status
 
 ---
 
-## 🔗 相关资源
+## 📊 Project Completion
 
-- **Desktop版本**: [ByteDesk Desktop](../../frontend/apps/desktop) - Electron + React 版本
-- **后端API**: [ByteDesk Backend](../../starter) - Java Spring Boot
-- **官网**: https://www.bytedesk.com
-- **文档**: https://docs.bytedesk.com
+| Module | Completion | Files |
+|------|------------|-------|
+| Data Models | ✅ 100% | 8 |
+| Core Features | ✅ 100% | 14 |
+| UI Interface | ✅ 80% | 3 |
+| Documentation | ✅ 100% | - |
+| **Total** | **✅ 95%** | **25** |
 
 ---
 
-## 📄 许可证
+## 🔗 Related Resources
+
+- **Desktop Version**: [ByteDesk Desktop](../../frontend/apps/desktop) - Electron + React version
+- **Backend API**: [ByteDesk Backend](../../starter) - Java Spring Boot
+- **Website**: https://www.bytedesk.com
+- **Documentation**: https://docs.bytedesk.com
+
+---
+
+## 📄 License
 
 Business Source License 1.1
 
-可免费用于内部使用和开发，禁止：
-- 转售或SaaS托管
-- 为非法业务部署
-- 未经许可的商业分发
+Free for internal use and development. Prohibited:
+- Resale or SaaS hosting
+- Deployment for illegal business
+- Unauthorized commercial distribution
 
 ---
 
-## 🤝 贡献
+## 🤝 Contributing
 
-欢迎提交 Issue 和 Pull Request！
+Issues and Pull Requests are welcome!
 
 ---
 
@@ -325,6 +325,6 @@ Business Source License 1.1
 
 **Made with ❤️ by ByteDesk**
 
-[官网](https://www.bytedesk.com) • [文档](https://docs.bytedesk.com) • [GitHub](https://github.com/bytedesk)
+[Website](https://www.bytedesk.com) • [Documentation](https://docs.bytedesk.com) • [GitHub](https://github.com/bytedesk)
 
 </div>
