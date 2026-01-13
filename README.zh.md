@@ -1,6 +1,6 @@
-# ByteDesk Qt 客户端
+# 微语 Qt 客户端 (ByteDesk Qt Client)
 
-> 基于 C++ + Qt + MQTT 实现的跨平台即时通讯客户端
+> 微语 (ByteDesk) - 基于 C++ + Qt + MQTT 实现的跨平台即时通讯客户端
 
 [![Qt](https://img.shields.io/badge/Qt-6.10%2B-41CD52?logo=qt)](https://www.qt.io)
 [![C++](https://img.shields.io/badge/C++-17-00599C?logo=c%2B%2B)](https://en.cppreference.com/w/C++17)
@@ -430,7 +430,7 @@ Business Source License 1.1
 
 <div align="center">
 
-**Made with ❤️ by ByteDesk**
+**Made with ❤️ by 微语 (ByteDesk) Team**
 
 [官网](https://www.weiyuai.cn) • [文档](https://www.weiyuai.cn/docs/zh-CN/) • [GitHub](https://github.com/bytedesk)
 
